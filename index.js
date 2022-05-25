@@ -79,7 +79,7 @@ let hashPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
     .then((users) => {
       if (users) {
-        return res.status(400).send(req.body.Username + "already exists");
+        return res.status(400).send(req.body.Username + " already exists");
       } else {
         Users.create({
          Username: req.body.Username,
@@ -139,8 +139,8 @@ app.get("/movies", passport.authenticate("jwt", { session: false }), (req, res) 
 
 app.get("/users/:Username", passport.authenticate("jwt", { session: false }), (req,res) => {
   Users.findOne({ Username: req.params.Username })
-  .then((user) => {
-    res.json(user);
+  .then((users) => {
+    res.json(users);
   })
   .catch((err) => {
     console.error(err);
