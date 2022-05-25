@@ -48,8 +48,8 @@ userSchema.methods.validatePassword = function(password) {
 
 /* ---------------------------Exportation-------------------------------- */
 
-let Movie = mongoose.model("Movie", movieSchema);
-let User = mongoose.model("User", userSchema);
+let Movie = mongoose.model("Movies", movieSchema);
+let User = mongoose.model("Users", userSchema);
 
 module.exports.movies = Movie;
 module.exports.users = User;

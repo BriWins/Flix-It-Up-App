@@ -79,7 +79,7 @@ let hashPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
     .then((users) => {
       if (users) {
-        return res.status(400).send(req.body.Username + " already exists");
+        return res.status(400).send(req.body.Username  + " already exists");
       } else {
         Users.create({
          Username: req.body.Username,
