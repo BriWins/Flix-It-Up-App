@@ -77,8 +77,8 @@ if (!errors.isEmpty()) {
 }
 let hashPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
-    .then((users) => {
-      if (users) {
+    .then((user) => {
+      if (user) {
         return res.status(400).send(req.body.Username  + " already exists");
       } else {
         Users.create({
@@ -88,7 +88,7 @@ let hashPassword = Users.hashPassword(req.body.Password);
          Birthdate: req.body.Birthdate,
          Favorites: req.body.Favorites
         })
-        .then((users) => {res.status(201).json(users)})
+        .then((user) => {res.status(201).json(user)})
         .catch((error) => {
          console.error(error);
          res.status(500).send("Error: " + error);
