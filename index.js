@@ -88,7 +88,7 @@ let hashPassword = Users.hashPassword(req.body.Password);
          Birthdate: req.body.Birthdate,
          Favorites: req.body.Favorites
         })
-        .then((users) => {res.status(201).json(user)})
+        .then((users) => {res.status(201).json(users)})
         .catch((error) => {
          console.error(error);
          res.status(500).send("Error: " + error);
